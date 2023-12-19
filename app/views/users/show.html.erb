@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="people-nearby">
+                <div class="nearby-user">
+                  <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                      <img src="<%= @user.photo %>" alt="<%= @user.name %>" class="profile-photo-lg">
+                    </div>
+                  <div class="col-md-7 col-sm-7">
+                    <h5 class="mt-2 fs-3"><%= @user.name %></h5>
+                  </div>
+                  <div class="col-md-3 col-sm-3">
+                    <p class="text-muted mt-5">Number of posts <%= @user.post_counter %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    	</div>
+	</div>
+    <div class="card mb-5" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">Bio</h5>
+        <p class="card-text"><%= @user.bio %></p>
+      </div>
+    </div>
+    <% @posts.each_with_index do |post, index| %>
+    <div class="card mb-4" id="post-card" style="width: 100%;">
+    <div class="card-body">
+    <h5 class="card-title"><%= link_to post.title, user_post_path(@user, post)%></h5>
+      <p class="card-text"><%= post.text %></p>
+      <div class="col-md-3 text-md-end col-sm-3" style="width: 100%;">
+        <p class="text-muted mt-5"><span>Likes: <%= post.like_counter %></span> <span>Comments: <%= post.comment_counter %></span></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="text-center">
+  <%= link_to "See All Posts", user_posts_path(@user), class: "btn btn-primary mb-3" %>
+  </div>
+</div>
