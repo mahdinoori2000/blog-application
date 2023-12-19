@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def show
     user_id = params[:user_id]
     @user = User.find(user_id)
-    @post = Post.find(params[:id])
+    @post = Post.includes(:author, :comments, :likes).find(params[:id])
   end
 
   def new
