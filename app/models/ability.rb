@@ -1,10 +1,7 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     user ||= current_user
 
     if user.role == 'admin'

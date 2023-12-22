@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+  end
+
   private
 
   def comment_params
