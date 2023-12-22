@@ -8,6 +8,9 @@
       <p class="card-text"><%= @post.text %></p>
       <div class="col-md-3 text-md-end col-sm-3" style="width: 100%;">
         <p class="text-muted mt-5"><span>Likes: <%= @post.like_counter %></span> <span>Comments: <%= @post.comment_counter %></span></p>
+        <% if can? :destroy, @post %>
+        <%= button_to "DELETE Post", "/users/#{@user.id}/posts/#{@post.id}", method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
   </div>
