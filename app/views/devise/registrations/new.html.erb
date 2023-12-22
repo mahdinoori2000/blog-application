@@ -16,6 +16,11 @@
   <%= f.text_field :bio, autofocus: true, autocomplete: "bio", class: "form-control" %>
   </div>
 
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, options_for_select(['user', 'admin']), prompt: 'Select Role' %>
+  </div>
+
   <div class="field form-outline mb-4">
   <%= f.label :photo, class: "mb-2" %><br />
   <%= f.text_field :photo, autofocus: true, autocomplete: "photo", class: "form-control" %>
