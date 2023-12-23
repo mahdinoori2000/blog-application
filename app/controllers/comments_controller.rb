@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def new
-    @post = @current_user.posts.find(params[:post_id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:post_id])
   end
 
   def create
@@ -13,6 +14,12 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(@comment.post.author, @comment.post)
   end
 
   private
