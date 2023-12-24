@@ -72,6 +72,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
+gem 'jsonapi-resources'
 
 gem 'devise', '~> 4.9'
 
