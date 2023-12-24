@@ -72,8 +72,6 @@ Clone this repository to your desired folder:
      - cd blog-app
      - bundle install (install all dependencies)
 
-
-
 ### Usage
 
 - bin/rails server (to run web application)
